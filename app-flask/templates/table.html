@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+	<title> some cats table </title>
+	<style>
+		table {
+			border: 2px solid blue;
+			border-collapse: collapse;
+			width: 50%;
+		}
+		th {
+			text-color:red;
+			padding: 5px;
+			background-color: lightgray;
+		}
+
+		h2 {
+			text-color:blue;
+			
+			text-align:center;
+			
+		}
+		h3 {
+			text-color:red;
+			text-align:center;
+		}
+			
+	</style>
+</head>
+<h1>Koty</h1>
+<table>
+ <tr>
+  <th>{{headhead}}</th>
+  <th>Wielkosc</th>
+  <th>Wiek</th>
+ </tr>
+ <tr>
+  <td>Czarny</td>
+  <td>Gruby</td>
+  <td>2 lata</td>
+ </tr>
+ <tr>
+  <td>Bialy</td>
+  <td>Chudy</td>
+  <td>rok</td>
+ </tr>
+</table>
+
+<h2> Is it my Birthday?</h2>
+<div></div>
+<h3>{{bday}}</h3>
+<h3>
+	{% if bday %}
+		Happy bday!!!
+	{% else %}
+		Sorry mate not today!!!
+	{% endif %}
+</h3>
+<ul> {% for name in names %}
+	<li> {{ name }} </li>
+      {% endfor %}
+</ul>
