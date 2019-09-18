@@ -1,0 +1,18 @@
+{% extends "leyout.html" %}
+
+
+{% block heading %}
+
+<ul>
+	{% for note in notes %}
+		<li> {{ note }} </li>
+	{% endfor %}
+</ul>
+{% endblock %}
+
+{% block body %}
+	<form action="{{ url_for('index') }}" method="post">
+		<input type="text" name="note" placeholder="Enter Your Note">
+		<button>Submit</button>
+	</form>
+{% endblock %}
