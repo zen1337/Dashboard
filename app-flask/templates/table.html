@@ -12,24 +12,12 @@
 			padding: 5px;
 			background-color: lightgray;
 		}
-
-		h2 {
-			text-color:blue;
-			
-			text-align:center;
-			
-		}
-		h3 {
-			text-color:red;
-			text-align:center;
-		}
-			
 	</style>
 </head>
 <h1>Koty</h1>
 <table>
  <tr>
-  <th>{{headhead}}</th>
+  <th>Kolor</th>
   <th>Wielkosc</th>
   <th>Wiek</th>
  </tr>
@@ -44,18 +32,3 @@
   <td>rok</td>
  </tr>
 </table>
-
-<h2> Is it my Birthday?</h2>
-<div></div>
-<h3>{{bday}}</h3>
-<h3>
-	{% if bday %}
-		Happy bday!!!
-	{% else %}
-		Sorry mate not today!!!
-	{% endif %}
-</h3>
-<ul> {% for name in names %}
-	<li> {{ name }} </li>
-      {% endfor %}
-</ul>

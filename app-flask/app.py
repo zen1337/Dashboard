@@ -21,3 +21,9 @@ def index2():
     names = {"one": 1, "two": 2}
     bday = now.month == 7 and now.day == 2
     return render_template("table.html", headhead=trolololol, bday=bday, names=names)
+@app.route("/kenny")
+def kenny():
+    return render_template("kenny-l.html")
+@app.route("/colin")
+def colin():
+    return render_template("colin-l.html")
