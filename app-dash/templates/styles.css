@@ -1,4 +1,10 @@
 h1 {
 	color:red;
 	text-align: center;
-	}
+}
+.row {
+	background-color: red;
+	width: 100%;
+}
+.col-sm-9 {
+	background-color: white;}
