@@ -61,3 +61,42 @@ SELECT status, COUNT(*) FROM statusp GROUP BY status;
 (having)
 
 SELECT status, COUNT(*) FROM statusp GROUP BY status HAVING COUNT(*) > 1;
+
+Combining two tables with REFERENCES and JOIN.
+
+CREATE TABLE xyz (
+	id SERIAL PRIMARY KEY,
+	name VARCHAR NOT NULL,
+	team_id INTEGER REFERENCES flights);
+
+[ REFERENCES informs DB that the team_id is related to other table there-fore it secures it from DELETE or some other modification??? ]
+
+
+SELECT name, team FROM names JOIN teams ON names.team_id = teams.id WHERE name = 'Adam';
+
+LEFT JOIN and RIGHT JOIN <--- Selects all table content without a match, on their respected tables left/right --->
+
+Group By:
+
+SELECT team_id FROM names GROUP BY team_id HAVING COUNT(*) > 1;
+
+SELECT * FROM teams WHERE id IN (SELECT team_id FROM names GROUP BY team_id HAVING COUNT(*) > 1);
+
+# result: id 1 | team WAF
+
+Basic Authentication:
+
+SELECT * FROM users WHERE (username = username) AND (password = password);
+SELECT * FROM users WHERE (username = 'admin') AND (password = '1' OR '1' = '1');
+
+Rece Conditions example
+
+# Runnin multiple querys and/or modyfining DB values at the same time.
+
+SELECT balance FROM bank WHERE user_id = 1;
+
+UPDATE bank SET balance = balance - 100 WHERE user_id = 1;
+
+To mitigate we can use SQL Transactions with BEGIN & COMMIT
+
+SQLAlchemy ^^
