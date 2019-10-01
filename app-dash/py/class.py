@@ -37,16 +37,14 @@ class userStatus:
 
     def changeTeam(self):
         usr = input("To edit a user, enter a username: ")
-        try:
-            if usr == self.name:
-                number = input("Enter team id, 1 = WAF, 2 = AF, 3 = DDOS: ")
-                try:
-                    if number == 1 or 2 or 3:
-                        self.team_n = number
-                        print("Team id for " + self.name + " changed to " + self.team_n)
-                except:
-                    print("Only numbers from 1 - 3 allowed")
-        except:
+        if usr == self.name:
+            number = input("Enter team id, 1 = WAF, 2 = AF, 3 = DDOS: ")
+            if number in ("1", "2", "3"):
+                self.team_n = number
+                print("Team id for " + self.name + " changed to " + self.team_n)
+            else:
+                print("Value out of scope 1-3")
+        else:
             print("Wrong username")
     def changeTime(self, time):
         self.time = int(time)

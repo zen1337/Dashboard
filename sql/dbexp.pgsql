@@ -56,6 +56,42 @@ ALTER SEQUENCE public.names_id_seq OWNED BY public.status.id;
 
 
 --
+-- Name: status_test; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.status_test (
+    id integer NOT NULL,
+    name character varying NOT NULL,
+    team_n integer NOT NULL,
+    status character varying NOT NULL
+);
+
+
+ALTER TABLE public.status_test OWNER TO postgres;
+
+--
+-- Name: status_test_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.status_test_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.status_test_id_seq OWNER TO postgres;
+
+--
+-- Name: status_test_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.status_test_id_seq OWNED BY public.status_test.id;
+
+
+--
 -- Name: statusp; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -105,6 +141,40 @@ CREATE TABLE public.team (
 ALTER TABLE public.team OWNER TO postgres;
 
 --
+-- Name: team_test; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.team_test (
+    id integer NOT NULL,
+    team character varying NOT NULL
+);
+
+
+ALTER TABLE public.team_test OWNER TO postgres;
+
+--
+-- Name: team_test_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.team_test_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.team_test_id_seq OWNER TO postgres;
+
+--
+-- Name: team_test_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.team_test_id_seq OWNED BY public.team_test.id;
+
+
+--
 -- Name: teams_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -134,6 +204,13 @@ ALTER TABLE ONLY public.status ALTER COLUMN id SET DEFAULT nextval('public.names
 
 
 --
+-- Name: status_test id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.status_test ALTER COLUMN id SET DEFAULT nextval('public.status_test_id_seq'::regclass);
+
+
+--
 -- Name: statusp id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -145,6 +222,13 @@ ALTER TABLE ONLY public.statusp ALTER COLUMN id SET DEFAULT nextval('public.stat
 --
 
 ALTER TABLE ONLY public.team ALTER COLUMN id SET DEFAULT nextval('public.teams_id_seq'::regclass);
+
+
+--
+-- Name: team_test id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.team_test ALTER COLUMN id SET DEFAULT nextval('public.team_test_id_seq'::regclass);
 
 
 --
@@ -160,6 +244,19 @@ COPY public.status (id, name, team_n, status) FROM stdin;
 6	Justyna	2	Online
 7	Adrian	3	Offline
 8	Lukas	3	Offline
+\.
+
+
+--
+-- Data for Name: status_test; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.status_test (id, name, team_n, status) FROM stdin;
+1	Pawel.K	1	Online
+2	Mark	3	Offline
+3	Justyna	2	Online
+4	Adrian	3	Offline
+5	Lukas	3	Offline
 \.
 
 
@@ -185,10 +282,25 @@ COPY public.team (id, team) FROM stdin;
 
 
 --
+-- Data for Name: team_test; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.team_test (id, team) FROM stdin;
+\.
+
+
+--
 -- Name: names_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.names_id_seq', 23, true);
+SELECT pg_catalog.setval('public.names_id_seq', 28, true);
+
+
+--
+-- Name: status_test_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.status_test_id_seq', 5, true);
 
 
 --
@@ -196,6 +308,13 @@ SELECT pg_catalog.setval('public.names_id_seq', 23, true);
 --
 
 SELECT pg_catalog.setval('public.statusp_id_seq', 2, true);
+
+
+--
+-- Name: team_test_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.team_test_id_seq', 1, false);
 
 
 --
@@ -214,11 +333,27 @@ ALTER TABLE ONLY public.status
 
 
 --
+-- Name: status_test status_test_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.status_test
+    ADD CONSTRAINT status_test_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: statusp statusp_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.statusp
     ADD CONSTRAINT statusp_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: team_test team_test_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.team_test
+    ADD CONSTRAINT team_test_pkey PRIMARY KEY (id);
 
 
 --
