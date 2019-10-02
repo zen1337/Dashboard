@@ -1,7 +1,7 @@
 import csv
 import os
 from flask import Flask, render_template, request
-from models import *
+from models_examples.py import *
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:34373437@localhost/postgres'
@@ -17,7 +17,10 @@ def main():
     for name, team_n, status in reader:
         userForm = Users(name=name, team_n=team_n, status=status)
         db.session.add(userForm)
-        print("Added new user %s with team id %d and status %s" % (name, int(team_n), status))
+        users_list = Users.query.all()
+        for user in users_list:
+            print(user.name, user.team_n, user.status)
+#        print("Added new user %s with team id %d and status %s" % (name, int(team_n), status))
     db.session.commit()
 if __name__ == "__main__":
     with app.app_context():
