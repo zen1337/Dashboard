@@ -17,3 +17,20 @@ a:not([href]):not([tabindex]) {
 .title {
 	font-size: 200%;
 }
+
+#inputUpload {
+    display: none;
+    text-align: right;
+    float: right;
+}
+
+.custom-file-upload {
+    cursor: pointer;
+    font-size: inherit;
+    color: #0c090d;
+    float: right;
+}
+
+.custom-file-upload:hover {
+    text-decoration: underline;
+}
