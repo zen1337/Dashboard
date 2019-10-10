@@ -1,0 +1,36 @@
+h1 {
+	color:red;
+	text-align: center;
+}
+.row {
+	background-color: white;
+	width: 100%;
+}
+.col-sm-9 {
+	background-color: white;
+}
+a:not([href]):not([tabindex]) {
+
+    color: white;
+    text-decoration: none;
+}
+.title {
+	font-size: 200%;
+}
+
+#inputUpload {
+    display: none;
+    text-align: right;
+    float: right;
+}
+
+.custom-file-upload {
+    cursor: pointer;
+    font-size: inherit;
+    color: #0c090d;
+    float: right;
+}
+
+.custom-file-upload:hover {
+    text-decoration: underline;
+}

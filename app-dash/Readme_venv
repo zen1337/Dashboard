@@ -1,0 +1,14 @@
+ 1476  cd venv/
+ 1484  source venv/bin/activate 
+ 1688  python3 -m venv venv
+ 1689  apt-get install python3-venv
+ 1691  cd venv/
+ 1694  cd venv/bin/
+ 1705  source venv/bin/python3
+ 1706  source venv/bin/activate
+ 1707  locate venv
+ 1708  cd /usr/lib/python3.6/venv
+ 1715  cp activate /root/N3Home/GIT/lecture0/app-dash/venv/bin/
+ 1757  cd venv
+ 1777  vi venv_info
+ 2024  history | grep venv > Readme_venv

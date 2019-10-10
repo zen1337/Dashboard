@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title> F5 On call Dashboard</title>
+		<title>{% block title %}{% endblock %}</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" href="styles.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
 	</head>
 	<body>
 	<nav class="navbar navbar-light bg-dark">
 	  <a class="navbar-brand">
-	    <img src="f5-networks-logo.png" width="5%" height="5%" class="d-inline-block align-top" alt="" align="left">
+	    <img src="/static/f5-networks-logo.png" width="5%" height="5%" class="d-inline-block align-top" alt="" align="left">
 	    <span class ="title">SOC Dashboard</span>
-	  </a>
+	  	  </a>
 	</nav>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 	  <a class="navbar-brand" href="leyout.html">Phone Status</a>
@@ -27,42 +25,18 @@
 	      <a class="nav-item nav-link active" href="#">DDOS<span class="sr-only">(current)</span></a>
 	      <a class="nav-item nav-link" href="#">AF</a>
 	      <a class="nav-item nav-link" href="#">WAF</a>
-	      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+	      <a class="nav-item nav-link nav" href="#">Disabled</a>
+	      <a class="nav-itme nav-link" href="#"><a>
+	      <form action="/csvread" method="post" enctype="multipart/form-data">
+		      <input type="file" name="myfile">
+		      <input type="submit" value="Submit">
+	      </form>
 	    </div>
 	  </div>
 	</nav>
 	
 	
 	
-	<!--	<div class="container-fluid">
- 	  <div class="row">
-	   <div class="col-sm-9-sm-3">
-     	    Phone login status	   </div>
-	   <div class="col-sm-9-sm-2">
-	    AF
-	   </div>
-	   <div class="col-sm-9-sm-2">
-	    WAF
-	   </div>
-	   <div class="col-sm-9-sm-2">
-	    DDOS
-	   </div>
--->		   
-		   
-		   
-		   
-		   
-		   <!--    	    <div class="row">
-    	     <div class="col-8 col-sm-6">
-              Level 2: .col-8 .col-sm-6
-      	     </div>
-      	     <div class="col-4 col-sm-6">
-      	      Level 2: .col-4 .col-sm-6
-       	     </div>
-</div> -->
-    	   </div>
-  	  </div>
-	 </div>
 <table class="table table-dark">
   <thead>
     <tr>
@@ -72,21 +46,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+      {% block td %}
+      {% endblock %}
   </tbody>
 </table>
 	</body>

@@ -1,5 +1,7 @@
 sudo -u postgres psql
 
+pg_dump -h 127.0.0.1 -U postgres > dbexp.pgsql
+
 CREATE TABLE StatusP (
 	id SERIAL PRIMARY KEY,
 	name VARCHAR NOT NULL,
@@ -98,5 +100,9 @@ SELECT balance FROM bank WHERE user_id = 1;
 UPDATE bank SET balance = balance - 100 WHERE user_id = 1;
 
 To mitigate we can use SQL Transactions with BEGIN & COMMIT
+
+Add column to an existing table:
+
+ALTER TABLE teams ADD COLUMN status data_type;
 
 SQLAlchemy ^^

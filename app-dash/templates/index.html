@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+ F5 SOC Dashboard
+
+{% endblock %}
+
+{% block td %}
+
+	{% for entry in user %}
+		<tr>
+		 <td>{{entry.name}}</td>	
+		 <td>{{entry.team}}</td>	
+		 <td>{{entry.status}}</td>
+		</tr>
+	{% endfor %}
+
+{% endblock %}
