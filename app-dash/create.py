@@ -18,13 +18,13 @@ def main(filename):
     reader = csv.reader(f)
     for name, team_n, status in reader:
         userForm = Users(name=name, team_n=team_n, status=status)
-    db.session.add(userForm)
+        db.session.add(userForm)
     users_list = userForm.query.all()
     for user in users_list:
         print(user.name, user.team_n, user.status)
     print("it got this far eh?")
 #        print("Added new user %s with team id %d and status %s" % (name, int(team_n), status))
-        db.session.commit()
+    db.session.commit()
 if __name__ == "__main__":
     with app.app_context():
         main()

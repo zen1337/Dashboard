@@ -1,11 +1,11 @@
 import os
 import csv
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from werkzeug.utils import secure_filename
 import create
-import models_examples
+from models_examples import *
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -51,5 +51,13 @@ def upload_file():
             print("it should have worked")
             return redirect('/')
 
-
-
+@app.route("/api/<int:user_id>")
+def db_api(user_id):
+    user = Users.query.get(user_id)
+    if user is None:
+        return jsonify({"error": "Invalid user_id"}), 400
+    return jsonify({
+        "name": user.name,
+        "team_n": user.team_n,
+        "status": user.status
+    })
