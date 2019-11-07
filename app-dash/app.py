@@ -17,6 +17,7 @@ UPLOAD_FOLDER = '/root/N3Home/GIT/lecture0/app-dash/static/uploads/'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'csv'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:34373437@localhost/postgres'
 dba.init_app(app)
 # if __name__ == "__main__":
 
@@ -47,6 +48,7 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             create.main(filename)
+            print("it should have worked")
             return redirect('/')
 
 

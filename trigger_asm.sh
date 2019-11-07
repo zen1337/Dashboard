@@ -44,9 +44,9 @@ function valid_ip()
     return $stat
 }
 
-CURL=/usr/bin/curl
+CURL=$(which curl)
 AB=$(which ab)
-OPENSSL=/usr/bin/openssl
+OPENSSL=$(which opensssl)
 if [ ! -x $CURL ]; then echo " ! curl binary not found - exiting" ; exit ; fi 
 if [ ! -x $AB ]; then echo " ! Apache Benchmark (ab) binary not found - exiting" ; exit ; fi
 if [ ! -x $OPENSSL ]; then echo " ! OpenSSL binary not found - exiting" ; exit ; fi

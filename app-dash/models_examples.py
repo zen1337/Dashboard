@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-
+print("test")
 db = SQLAlchemy()
 
 class Users(db.Model):
